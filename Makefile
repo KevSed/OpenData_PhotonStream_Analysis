@@ -307,7 +307,7 @@ $(OUTDIR)/pdf: $(OUTDIR)
 	mkdir -p $(OUTDIR)/pdf
 
 cuts:
-	python3 ~/Packages/performance-python-analysis/scripts/detection_gridsearch.py \
+	python3 detection_gridsearch.py \
 		$(OUTDIR)/crab_data_precuts.hdf5
 
 clean:
