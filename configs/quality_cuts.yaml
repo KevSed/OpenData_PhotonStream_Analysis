@@ -1,0 +1,26 @@
+selection:
+    size:
+      - '>='  # needs to be in quotes because > and ! are special character in yaml
+      - 40
+#    n_pixel:
+#      - '>='  # needs to be in quotes because > and ! are special character in yaml
+#      - 10
+#    n_pixel:
+#      - '<'  # needs to be in quotes because > and ! are special character in yaml
+#      - 300
+    leakage:
+      - '<'
+      - 0.2
+#    clusters:
+#      - <
+#      - 6
+#    length:
+#      - <
+#      - 50
+#    width:
+#      - '>'
+#      - 4.2
+#    leakage2:
+#      - < # string representation also possible
+#      - 0.85
+

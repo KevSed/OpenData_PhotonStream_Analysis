@@ -1,0 +1,47 @@
+# seed for the random number generators, to make things reproducible
+seed: 42
+
+disp:
+    disp_regressor : |
+      ensemble.RandomForestRegressor(
+          n_estimators=100,
+          max_features='sqrt',
+          n_jobs=-1,
+          max_depth=15
+      )
+
+    sign_classifier: |
+      ensemble.RandomForestClassifier(
+          n_estimators=100,
+          max_features='sqrt',
+          n_jobs=-1,
+          max_depth=15,
+      )
+
+
+
+    # columns containing coordinates of the source and of the pointing
+    source_azimuth_column: source_position_az
+    source_zenith_column: source_position_zd
+    pointing_azimuth_column: pointing_position_az
+    pointing_zenith_column: pointing_position_zd
+
+
+    # randomly sample the data if you dont want to use the whole set
+    n_signal : 150000
+
+    # define the number of cross validations to perform
+    n_cross_validations : 5
+
+    features:
+    # - clusters
+      - length
+    #  - size
+      - width
+      - skewness_long
+      - skewness_trans
+      - kurtosis_long
+      - kurtosis_trans
+      - cog_x
+      - cog_y
+      - delta
