@@ -43,4 +43,61 @@ following scripts can be called via the Makefile.
 - rate: calls `plot_ratescan.py` generate a plot of the number of observation events as a function of a cut on the parameter 'size'
 - delta: calls `delta_delta/plot_delta_delta.py` to generate a plot showing the difference of the reconstructed `delta` and the expected `delta` from the known source position to investigate origin reconstruction.
 - sdelta: same as the above, but calling `delta_delta/plot_specific_delta_delta.py` to compare the FACT-Tools `delta` with the exact same events of the PhotonStream.
-- cuts: uses the [performance python analysis'](https://github.com/fact-project/performance-paper-analysis) `detection_gridsearch.py`
+- cuts: uses the [performance python analysis'](https://github.com/fact-project/performance-paper-analysis) `detection_gridsearch.py` to calculate the optimal `gamma\_prediction` and theta2-cut threshold for the maximum detection significance
+
+## Additional Investigations
+
+There are a few additional investigations performed to understand the PhotonStream data better. They
+are basically represented by the different directories in this repository and will be explained in
+the following. The investigations generally consist of a dedicated Makefile, which produces a number
+of plots within their respective directory.
+
+### camera\_images\_cleaning
+
+The DBSCAN cleaning within the PhotonStream is a new way to clean IACT images within the
+three-dimensional point cloud. Therefore, it is interesting to investigate the differences.
+`plot_cleaned_images.py` plots the camera images and, if desired, the cleaned pixels within the
+two-dimensional camera plane for the classical FACT-Tools cleaning on both data representations
+plus the DBSCAN cleaning on PhotonStream data. Further tunings and information can be found in
+the python script.
+
+### delta\_delta
+
+To further understand the poor out\-of\-the\-box performance of the origin reconstruction on
+PhotonStream data, the feature `delta` can be investigated. It represents the orientation of the
+air-shower within the camera with respect to the x-axis. Since the source position of the Crab
+Nebula is well known and with the help of the telescope's pointing position can be reconstructed
+within the camera, the difference between the calculated `delta` and this expected `delta` can be
+calculated. This can be done with `plot_delta_delta.py`. Furthermore, the difference between the
+FACT-Tools `delta` and the PhotonStream `delta` can be calculated by `plot_specific_delta_delta.py`.
+This way, the difference of this new data representation to the classical Largest Pulse data can be
+examined.
+
+### eps\_comparison\_plots
+
+To investigate the effects of the new cleaning and whether it can be optimized, two parameters can
+be varied. The minimum number of photons within a dense cluster (m) and the minimum distance of two
+photons to be considered dense (epsilon). In this work, the parameter epsilon can be investigated.
+Especially with respect to its impact on mismatches between data and simulations. To do so the
+mismatches can be investigated directly for samples generated with different epsilon. Furthermore,
+via `plot_eps_scores.py` the high level performance scores of the models and the analysis results
+can b einvestigated as a function of the epsilon. Unfortunately, there is no complete automation of
+this, since the performance results are only printed to the terminal output and therefore are
+hard-coded here.
+
+### pe\_difference
+
+By using the new single photon extraction the resulting images of the PhotonStream differ from the
+classical representation. To investigate the differences in the number of reconstructed
+photon-equivalents, this Makefile can be used. `plot_cleaned_images.py` can be used to plot the
+two-dimensional camera images for the two data representations available in the open data sample.
+Additionally to those two images, the difference in PE is plotted into the camera image in the middle.
+Furthermore, `plot_histograms.py` creates histograms for the PE differences per pixel and the
+differences of the mean PE per event.
+
+### time\_slices
+
+As a first investigation of the new time features, the PhotonStream is offering, the distributions of
+the arrival times of single photons can be displayed via `slices.py`. Furthermore, since only bright
+pixels are interesting as signal, a cut on the number of minimum PE can be set and only such pixel
+arrival times put in the histograms for observations as well as simulations.
