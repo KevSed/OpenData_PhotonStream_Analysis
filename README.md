@@ -31,19 +31,19 @@ telescopes, [aict-tools](https://github.com/fact-project/aict-tools).
 For further investigations of the PhotonStream, a couple of additional plots can be generated. The
 following scripts can be called via the Makefile.
 
-- theta2: creates the theta2-plot, e.g. when changing thresholds of `gamma_prediction` or the theta2-cut
-- skymap: creates a 2-dimensional skymap of the reconstructed source position via `skymaps.py`
-- protonskymap: does the above for the proton MC simulations (models have to be applied to the simulations first)
-- gammaskymap: does the above for the gamma MC simulations (models have to be applied to the simulations first)
-- theta: does both of the above
-- mcdata\_p: uses `plot_data_mc_comparison.py` to generate comparison plots of the features of observed data and the proton MC simulations.
-- mcdata: uses `ks_test.py` to generate data MC comparison plots for observed data, gamma simulations and proton simulations.
-- plot\_performance: uses the aict-tools command line functions to generate performance plots for the machine learning models (gamma hadron separation and energy reconstruction) generated on the simulations.
-- meta: adds the meta data of the open data sample observations to the runs group of the hdf5 files via `add_meta_data.py`. Needs to be applied before starting the analysis.
-- rate: calls `plot_ratescan.py` generate a plot of the number of observation events as a function of a cut on the parameter 'size'
-- delta: calls `delta_delta/plot_delta_delta.py` to generate a plot showing the difference of the reconstructed `delta` and the expected `delta` from the known source position to investigate origin reconstruction.
-- sdelta: same as the above, but calling `delta_delta/plot_specific_delta_delta.py` to compare the FACT-Tools `delta` with the exact same events of the PhotonStream.
-- cuts: uses the [performance python analysis'](https://github.com/fact-project/performance-paper-analysis) `detection_gridsearch.py` to calculate the optimal `gamma\_prediction` and theta2-cut threshold for the maximum detection significance
+- **theta2**: creates the theta2-plot, e.g. when changing thresholds of `gamma_prediction` or the theta2-cut
+- **skymap**: creates a 2-dimensional skymap of the reconstructed source position via `skymaps.py`
+- **protonskymap**: does the above for the proton MC simulations (models have to be applied to the simulations first)
+- **gammaskymap**: does the above for the gamma MC simulations (models have to be applied to the simulations first)
+- **theta**: does both of the above
+- **mcdata\_p**: uses `plot_data_mc_comparison.py` to generate comparison plots of the features of observed data and the proton MC simulations.
+- **mcdata**: uses `ks_test.py` to generate data MC comparison plots for observed data, gamma simulations and proton simulations.
+- **plot\_performance**: uses the aict-tools command line functions to generate performance plots for the machine learning models (gamma hadron separation and energy reconstruction) generated on the simulations.
+- **meta**: adds the meta data of the open data sample observations to the runs group of the hdf5 files via `add_meta_data.py`. Needs to be applied before starting the analysis.
+- **rate**: calls `plot_ratescan.py` generate a plot of the number of observation events as a function of a cut on the parameter 'size'
+- **delta**: calls `delta_delta/plot_delta_delta.py` to generate a plot showing the difference of the reconstructed `delta` and the expected `delta` from the known source position to investigate origin reconstruction.
+- **sdelta**: same as the above, but calling `delta_delta/plot_specific_delta_delta.py` to compare the FACT-Tools `delta` with the exact same events of the PhotonStream.
+- **cuts**: uses the [performance python analysis'](https://github.com/fact-project/performance-paper-analysis) `detection_gridsearch.py` to calculate the optimal `gamma\_prediction` and theta2-cut threshold for the maximum detection significance
 
 ## Additional Investigations
 
