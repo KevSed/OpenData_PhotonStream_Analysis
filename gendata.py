@@ -17,7 +17,7 @@ def as_completed(futures):
 
 
 @click.command()
-@click.argument('output_file', type=click.Path(exists=False)
+@click.argument('output_file', type=click.Path(exists=False))
 @click.argument('input_file', nargs=-1, required=True, type=click.Path(exists=True))
 @click.option('-e', '--eps', default=0.1, type=float, help='Eps parameter for DBSCAN')
 @click.option('-n', '--n-jobs', default=-1, type=int, help='Number of cores to use')
